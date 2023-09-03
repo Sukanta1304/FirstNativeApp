@@ -16,7 +16,7 @@ function App() {
 
   return (
     <SafeAreaView>
-      <Text>Hello World</Text>
+      <Text>First App</Text>
     </SafeAreaView>
   );
 }
