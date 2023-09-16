@@ -1,43 +1,28 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import 'react-native-gesture-handler';
+import React, { useEffect } from 'react';
+import {SafeAreaView,Text} from 'react-native';
+import SplashScreen from 'react-native-splash-screen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Landing from './screens/Landing';
+import Home from './screens/Home';
 
-
+const Stack = createStackNavigator();
 
 function App() {
 
+  useEffect(()=>{
+    SplashScreen.hide();
+  },[]);
 
   return (
-    <SafeAreaView>
-      <Text>First App</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}}/>
+      <Stack.Screen name="Home" component={Home} options={{headerShown:true}}/>
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
