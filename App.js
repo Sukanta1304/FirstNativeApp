@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Landing from './screens/Landing';
 import Home from './screens/Home';
+import { UserContextProvider } from './context/UserContext';
 
 const Stack = createStackNavigator();
 
@@ -16,12 +17,14 @@ function App() {
   },[]);
 
   return (
+    <UserContextProvider>
     <NavigationContainer>
     <Stack.Navigator>
       <Stack.Screen name="Landing" component={Landing} options={{headerShown:false}}/>
       <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
     </Stack.Navigator>
     </NavigationContainer>
+    </UserContextProvider>
   );
 }
 

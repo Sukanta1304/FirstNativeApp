@@ -8,12 +8,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import CustomTabHeader from '../components/CustomTabHeader';
 
 const Tab = createBottomTabNavigator();
 
 const Home = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{header:()=><CustomTabHeader/>}}>
       <Tab.Screen
         name="AppHome"
         component={TabHome}
@@ -24,7 +25,7 @@ const Home = () => {
             ) : (
               <AntDesign name="home" color={color} size={size} />
             ),
-            headerShown:false
+            headerShown:true
         }}
       />
       <Tab.Screen
@@ -37,7 +38,7 @@ const Home = () => {
             ) : (
               <Ionicons name="speedometer-outline" color={color} size={size} />
             ),
-            headerShown:false
+            headerShown:true
         }}
       />
       <Tab.Screen
@@ -50,7 +51,7 @@ const Home = () => {
             ) : (
               <FontAwesome name="user-o" color={color} size={size} />
             ),
-            headerShown:false
+            headerShown:true
         }}
       />
     </Tab.Navigator>
